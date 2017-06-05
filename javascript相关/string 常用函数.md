@@ -1,0 +1,117 @@
+# string 常用函数
+### 字符相关函数：
+1. **charAt**() 
+
+```
+stringObject.charAt(index)
+```
+
+参数 | 描述
+---|---
+index | 表示字符串中某个位置的数字，即字符在字符串中的下标。
+
+例子：
+    
+    
+```
+var a = "1234";
+console.log(a.charAt(0));//1
+console.log(a.charAt(1));//2
+console.log(a.charAt(2));//3
+console.log(a.charAt(3));//4
+console.log(a.charAt(4));//""
+```
+++字符串中第一个字符的下标是 0。如果参数 index 不在 0 与 string.length 之间，该方法将返回一个空字符串++。
+
+2. **charCodeAt**()
+
+用法和charAt一样，返回值是当前位置的字符的Unicode的编码。
+
+> fromCharCode 是把Unicode转成字符。
+> String.fromCharCode(100); //d
+> String.fromCharCode(100,99,98);//dbc
+
+++字符串中第一个字符的下标是 0。如果 index 是负数，或大于等于字符串的长度，则 charCodeAt() 返回 NaN。++
+
+3. **string[x]**
+
+在ecmascript 5中可以使用这种方式，类似直接访问数组元素的方法访问字符串中某个位置的字符。
+
+### 字符串操作函数
+
+1. concat()
+
+> 将一个或多个字符串拼接起来，并返回拼接后的字符串。
+
+类似+操作符  
+"a"+"b" = "ab"   =>  "a".concat("b")="ab"
+
+2. slice ()
+> 提取字符串的某个部分并返回（包含start不包含end）
+```
+stringObject.slice(start,end)
+```
+
+参数 | 描述
+---|---
+start | 起始下标，如果是负数，代表从后往前算。-1代表倒数第一个字符。
+end   | 终止下标，默认是到最后一个字符。如果是负数，则终止位置从后往前算。
+
+
+
+3. substr()
+> 抽取从start开始，往后多少个长度的字符串
+
+```
+stringObject.substr(start,length)
+```
+参数 | 描述
+---|---
+start | 起始下标，如果是负数，代表从后往前算。-1代表倒数第一个字符。
+length  | 可选。子串中的字符数。必须是数值。如果省略了该参数，那么返回从 stringObject 的开始位置到结尾的字串。
+下标从0开始。
+4. substring()
+> 提取两个下标中间的所有字符，并返回。
+```
+stringObject.substr(start,end)
+```
+不接受负数参数。包前不包后。即从start ---（end-1）
+
+如果传入的是负值，这个值直接转成0
+
+### 字符串位置相关函数：
+1. indexOf()
+> 可返回某个指定的字符串值在字符串中首次出现的位置。从前往后。
+
+
+```
+stringObject.indexOf(searchvalue,fromindex)
+```
+参数 | 描述
+---|---
+searchvalue | 规定需检索的字符串值。
+fromindex   | 可选的整数参数。规定在字符串中开始检索的位置。它的合法取值是 0 到 stringObject.length - 1。如省略该参数，则将从字符串的首字符开始检索。
+
+==如果要检索的字符串值没有出现，则该方法返回 -1。==
+
+==对大小写敏感。==
+
+2. lastIndexOf()
+
+> 指定位置向前检索。
+
+
+```
+stringObject.lastIndexOf(searchvalue,fromindex)
+```
+
+
+### 其他工具函数
+1. trim()
+> 删除字符串前缀和后缀中的空格。
+
+2. toLowerCase()/toLocaleLowerCase()
+> 把字符串转换成小写。/根据当地的规则转换成小写
+
+3. toUpperCase()/toLocalUpperCase()
+> 把字符串转换成大写。 /根据当地的规则转换成大写
